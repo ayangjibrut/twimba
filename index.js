@@ -14,7 +14,18 @@ document.addEventListener('click', function(e){
     else if(e.target.id === 'tweet-btn'){
         handleTweetBtnClick()
     }
+    else if(e.target.id === 'reset-btn'){
+        resetBtn()
+    }
+    else if(e.target.id === 'trash-btn'){
+        resetBtn()
+    }
 })
+
+function resetBtn()
+{
+    location.reload()
+}
  
 function handleLikeClick(tweetId){ 
     const targetTweetObj = tweetsData.filter(function(tweet){
@@ -68,6 +79,10 @@ function handleTweetBtnClick(){
     render()
     tweetInput.value = ''
     }
+}
+
+function handleDeleteClick(tweetId) {
+    const trashBtn = document.getElementById('delete')
 
 }
 
@@ -90,7 +105,7 @@ function getFeedHtml(){
         
         let repliesHtml = ''
         
-        if(tweet.replies.length > 0){
+        if (tweet.replies.length > 0){
             tweet.replies.forEach(function(reply){
                 repliesHtml+=`
 <div class="tweet-reply">
@@ -100,7 +115,7 @@ function getFeedHtml(){
                 <p class="handle">${reply.handle}</p>
                 <p class="tweet-text">${reply.tweetText}</p>
             </div>
-        </div>
+     </div>
 </div>
 `
             })
@@ -132,6 +147,11 @@ function getFeedHtml(){
                     data-retweet="${tweet.uuid}"
                     ></i>
                     ${tweet.retweets}
+                </span>
+                <span class="tweet-detail">
+                    <i class="fa-solid fa-trash"
+                    data-remove="${tweet.uuid}" id="trash-btn"
+                    ></i>
                 </span>
             </div>   
         </div>            

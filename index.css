@@ -9,7 +9,7 @@ html, body {
 h1{
     color: #0F8CDF;
     margin-bottom: 10px;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 i{
@@ -46,6 +46,10 @@ header{
     gap: 10px;
 }
 
+.separator {
+    border-top: 1px solid lightgray;
+}
+
 /* textareas + btn */
 
 textarea{
@@ -69,6 +73,11 @@ button{
     cursor: pointer;
     font-size: 20px;
     font-weight: 600;
+}
+
+.reset-btn {
+    width: 100%;
+    margin-top: 15px;
 }
 
 /* tweet */
